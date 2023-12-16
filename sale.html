@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sale</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script src="vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <header>
+        <nav
+          class="navbar navbar-expand-lg navbar-dark"
+          style="background-color: salmon"
+        >
+          <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Your Shoes</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Collection
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Sneaker</a></li>
+                    <li><a class="dropdown-item" href="#">Slip</a></li>
+                    <li><a class="dropdown-item" href="#">Pantofel</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Brand
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Adidas</a></li>
+                    <li><a class="dropdown-item" href="#">Nike</a></li>
+                    <li><a class="dropdown-item" href="#">New Balance</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Sale</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Log In</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#cartModal"
+                  >
+                    Cart({{carts.length}})
+                  </a>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-light" type="submit">
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center my-4">
+              <h1>Product Sale</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div
+              class="col-12 col-md-4 text-center my-3"
+              v-for="product in products"
+            >
+              <img
+                style="border-radius: 20px"
+                class="w-100"
+                :src="product.productImage"
+                alt="white sneakers"
+              />
+              <a
+                class="round"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                @click="selectShoes(product.productId)"
+                >Details</a
+              >
+              <h2>{{product.productTitle}}</h2>
+              <h5 style="text-decoration: line-through; color: gray">
+                {{ Intl.NumberFormat('id-ID', { style: 'currency', currency:
+                'IDR' }).format(product.productPrice) }}
+              </h5>
+              <h4>
+                {{ Intl.NumberFormat('id-ID', { style: 'currency', currency:
+                'IDR' }).format(product.discountPrice) }}
+              </h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cart Start Here -->
+        <div
+          class="modal fade modal-dialog-scrollable"
+          id="cartModal"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                  Isi Keranjang
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div
+                  class="row align-items-center my-3"
+                  v-for="cart in carts"
+                >
+                  <div class="col-3">
+                    <img
+                      class="w-100"
+                      style="height: 200px; object-fit: cover"
+                      src="image/download.jpg"
+                    />
+                  </div>
+                  <div class="col-7">
+                    <h2 style="font-weight: bold">{{cart.productTitle}}</h2>
+                    <div class="row">
+                      <div class="col-6">
+                        <h4>Size : {{cart.sizeOptions}}</h4>
+                        <h4>Jumlah : {{cart.quantity}}</h4>
+                      </div>
+                      <div class="col-6">
+                        <h4>Packaging : {{cart.packaging}}</h4>
+                        <h4>Note : {{cart.specialRequest}}</h4>
+                      </div>
+                    </div>
+                    <h4>{{ Intl.NumberFormat('id-ID', { style: 'currency',
+                      currency: 'IDR' }).format(cart.discountPrice) }}</h4>
+                  </div>
+                  <div class="col-2 text-center" style="font-size: larger">
+                    <button
+                      style="font-size: larger"
+                      type="button"
+                      class="btn btn-secondary"
+                      @click="removeCart(cart.id)"
+                    >
+                      Hapus
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer mx-2">
+                
+                <h3>Total : {{ Intl.NumberFormat('id-ID', { style: 'currency',
+                  currency: 'IDR' }).format(getTotalPrice) }}</h3>
+                <button
+                  style="font-size: larger"
+                  type="button"
+                  class="btn btn-primary mx-2"
+                  @click="cartBuy()"
+                >
+                  Buy
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Cart Ends Here -->
+
+        <!-- Detail Products -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-detail-shoes">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Product Details
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  @click="resetData"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-4">
+                    <img
+                      class="w-100"
+                      src="image/1683139150-8-6452aa4a0a4d1.png"
+                      alt="White Sneakers"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <h1>{{ selectedShoes.productTitle }}</h1>
+                    <h3 style="text-decoration: line-through; color: gray">
+                      {{ Intl.NumberFormat('id-ID', { style: 'currency',
+                      currency: 'IDR' }).format(selectedShoes.productPrice) }}
+                    </h3>
+                    <h2 class="mb-4">
+                      {{ Intl.NumberFormat('id-ID', { style: 'currency',
+                      currency: 'IDR' }).format(selectedShoes.discountPrice) }}
+                    </h2>
+                    <div class="row align-items-center mb-4">
+                      <div class="col-2">
+                        <h4>Choose Size</h4>
+                      </div>
+                      <div class="col-10">
+                        <div class="form-floating">
+                          <select
+                            class="form-select"
+                            id="floatingSelect"
+                            aria-label="Floating label select example"
+                            v-model="size"
+                          >
+                            <option
+                              v-for="sizeOption in selectedShoes.sizeOptions"
+                              :value="sizeOption"
+                            >
+                              {{sizeOption}}
+                            </option>
+                          </select>
+                          <label for="floatingSelect"
+                            >Please choose one size</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-2"><h4>Quantity</h4></div>
+                      <div class="col-10">
+                        <button
+                          v-on:click="qty_minus"
+                          id="qty_minus"
+                          :title="minusMessage"
+                        >
+                          -
+                        </button>
+                        <input
+                          type="text"
+                          name=""
+                          id="qty"
+                          v-model="qty"
+                          v-on:keyup.up="qty_plus"
+                          v-on:keyup.down="qty_minus"
+                          v-on:keyup.enter="buyNow"
+                          @keypress="isNumber($event)"
+                        />
+                        <button
+                          v-on:click="qty_plus"
+                          id="qty_plus"
+                          :title="plusMessage"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row align-items-center mb-2">
+                      <div class="col-12">
+                        <p>If you can't find the right size, please tell us!</p>
+                      </div>
+                      <div class="col-2 spesial">
+                        <h4>Special Request</h4>
+                      </div>
+                      <div class="col-10">
+                        <div class="input-group d-flex">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="ex. EUR 39"
+                            aria-label="Username"
+                            aria-describedby="addon-wrapping"
+                            v-model="specialRequest"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <div class="col-12">
+                        <h4>Packaging</h4>
+                        <div class="form-check form-check-inline">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio1"
+                            value="Normal"
+                            v-model="packaging"
+                          />
+                          <label class="form-check-label" for="inlineRadio1"
+                            >Normal</label
+                          >
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio2"
+                            value="Bubble Wrap"
+                            v-model="packaging"
+                          />
+                          <label class="form-check-label" for="inlineRadio2"
+                            >Bubble Wrap</label
+                          >
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio1"
+                            value="Wooden Box"
+                            v-model="packaging"
+                          />
+                          <label class="form-check-label" for="inlineRadio1"
+                            >Wooden Box</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      @click="addToCart()"
+                      class="btn btn-dark"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                      @click="resetData"
+                    >
+                      Add to Cart
+                    </button>
+                    <button
+                      type="button"
+                      @click="buyNow()"
+                      class="btn btn-dark"
+                    >
+                      Buy Now
+                    </button>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <h3 class="my-3">Description:</h3>
+                      <p class="mb-3">
+                        Make your days more simply with YourShoes' sneakers. We
+                        proudly presents YourShoes' Sneakers Edition. Made with
+                        a combination of twill fabric upper and white-colored
+                        rubber, each pair gives the impression of shoes that
+                        have been lovingly kept and long unused Express your
+                        simply style everyday with 5 different choice of colors.
+                        Wear the sneakers to support your mood today, tomorrow
+                        and forever.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <h3>Specification:</h3>
+                      <ul type="square">
+                        <li>10 Oz Canvas Upper Material</li>
+                        <li>Canvas Lining Material</li>
+                        <li>Polyester Flat Laces</li>
+                        <li>Rubber Foxing and Outsole</li>
+                        <li>Custom Woven Label</li>
+                      </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <h3>Size Chart:</h3>
+                      <ul type="square">
+                        <li>US 5/UK 4/EUR 36/JP 24</li>
+                        <li>US 6.5/UK 5.5/EUR 38/JP 25</li>
+                        <li>US 7/UK 6/EUR 39/JP 25.8</li>
+                        <li>US 8/UK 7/EUR 40/JP 26</li>
+                        <li>US 8/UK 7/EUR 41/JP 26.3</li>
+                        <li>US 11/UK 10.5/EUR 45/JP 29.5</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <div class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-sm-4 col-xs-12">
+              <div class="single_footer">
+                <h4>Services</h4>
+                <ul>
+                  <li><a href="#">Lorem Ipsum</a></li>
+                  <li><a href="#">Simply dummy text</a></li>
+                  <li><a href="#">The printing and typesetting </a></li>
+                  <li><a href="#">Standard dummy text</a></li>
+                  <li><a href="#">Type specimen book</a></li>
+                </ul>
+              </div>
+            </div>
+            <!--- END COL -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="single_footer single_footer_address">
+                <h4>Page Link</h4>
+                <ul>
+                  <li><a href="#">Lorem Ipsum</a></li>
+                  <li><a href="#">Simply dummy text</a></li>
+                  <li><a href="#">The printing and typesetting </a></li>
+                  <li><a href="#">Standard dummy text</a></li>
+                  <li><a href="#">Type specimen book</a></li>
+                </ul>
+              </div>
+            </div>
+            <!--- END COL -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="single_footer single_footer_address">
+                <h4>Subscribe today</h4>
+                <div class="signup_form">
+                  <form action="#" class="subscribe">
+                    <input
+                      type="text"
+                      class="subscribe__input"
+                      placeholder="Enter Email Address"
+                    />
+                    <button type="button" class="subscribe__btn">
+                      <i class="fas fa-paper-plane"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div class="social_profile">
+                <ul>
+                  <li>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--- END COL -->
+          </div>
+          <!--- END ROW -->
+          <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+              <p class="copyright">
+                Copyright © 2019 <a href="#">Akdesign</a>.
+              </p>
+            </div>
+            <!--- END COL -->
+          </div>
+          <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+      </div>
+    </footer>
+    <!-- <script src="js/bootstrap.js"></script>  -->
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="custom.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+
+<ul class="dropdown-content">
+    <a href="detail.html">Sneakers</a>
+    <a href="detail.html">Slip On</a>
+    <a href="detail.html">Boots</a>
+    <a href="detail.html">Pantofel</a>
+</ul>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta 
+name="viewport" 
+content="width=device-width, initial-scale=1.0">
+    <title>Tasty Recipe</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="Fontawesome/css/all.css">
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+    <header class="container-fluid bg-white py-3 border-bottom position-sticky top-0 z-3">
+        <div class="container-md d-flex justify-content-between align-items-center">
+            <img src="image/PngItem_5029072.png" style="width: 120px;" alt="Logo">
+                <div class="header__navbar row justify-content-between align-items-center" style="width: 450px;">
+                    <div class="col-9 py-0 d-none d-sm-block">
+                        <div class="header__searchbar input-group align-items-center border rounded-start-pill rounded-end-pill">
+                            <span class="px-2">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            </span>
+                            <input type="text" class="form-control form-control-sm border-0 rounded-end-pill" placeholder="Search Recipe">
+                        </div>
+                    </div>
+                        <div class="col-5 d-block d-sm-none border-end text-end">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+      
+                        <div class="header__signup col-7 col-sm-3 fw-semibold d-flex justify-content-evenly align-items-center" style="color: #4C4DDC; text-align: right;">
+                            <i class="fa-solid fa-user"></i>
+                            <p class="mb-0">Sign Up</p>
+                        </div>
+                        
+                </div>
+        </div>	
+</header>
+<main>
+    <div class="container-md my-4">
+        <div class="recipe__title text-center" >
+            <h2>All Recipe</h2>
+            <p style="font-size: 15px;">
+            Find and share everyday cooking inspiration
+            on Allrecipes.Discover recipes, cooks, videos,
+            and how-tos based on the food you love and the
+            friends you follow.</p>
+
+        </div>
+        <div class="recipe__categories d-flex justify-content-center flex-wrap mb-3">
+            <div class="px-2 mb-2">
+                <input type="checkbox" class="btn-check"id="btn-check-outlined">
+                <label class="btn btn-category" for="btn-check-outlined">
+                Breakfast
+                </label>
+            </div>
+            <div class="px-2 mb-2">
+                <input type="checkbox" class="btn-check" id="btn-check-2-outlined">
+                <label class="btn btn-category" for="btn-check-2-outlined">
+                Lunch
+                </label>
+            </div>
+            <div class="px-2 mb-2">
+                <input type="checkbox" class="btn-check" id="btn-check-3-outlined">
+                <label class="btn btn-category" for="btn-check-3-outlined">
+                Dinner
+                </label>
+            </div>
+            <div class="px-2 mb-2">
+                <input type="checkbox" class="btn-check" id="btn-check-4-outlined">
+                       <label class="btn btn-category" for="btn-check-4-outlined">
+                Meals
+                </label>
+            </div>
+            <div class="px-2 mb-2">
+                <input type="checkbox" class="btn-check" id="btn-check-5-outlined">
+                <label class="btn btn-category" for="btn-check-5-outlined">
+                Snacks</label>
+            </div>
+                
+        </div>
+        <div class="recipe__list-recipe row">
+            <div class="col-12 col-lg-3 col-sm-6" style="padding-top: 12px; padding-bottom: 12px;">
+                <div class="card position-relative" style="height: 398px">
+                    <img src="image\2.jpg" class="card-img-top" alt="Food" height="240" width="285">
+                    <div class="card-body">
+                        <p class="mb-0">BREAKFAST</p>
+                            <div class="h-50">
+                                <h4 class="fs-5 mb-0">Crispy Carrot Fries</h4>
+                            </div>
+                        <p>Recipe By László Barbara</p>
+                    </div>
+                    <div class="position-absolute text-danger bg-light px-2 py-1 
+                    rounded-circle end-0 m-2">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 col-sm-6" style="padding-top: 12px; padding-bottom: 12px;">
+                <div class="card position-relative" style="height: 398px">
+                    <img src="image\3.jpg" class="card-img-top" alt="Food" height="240" width="285">
+                    <div class="card-body">
+                        <p class="mb-0">BREAKFAST</p>
+                            <div class="h-50">
+                                <h4 class="fs-5 mb-0">Spicy Chicken Sauce</h4>
+                            </div>
+                        <p>Recipe By László Barbara</p>
+                    </div>
+                    <div class="position-absolute text-danger bg-light px-2 py-1 
+                    rounded-circle end-0 m-2">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 col-sm-6" style="padding-top: 12px; padding-bottom: 12px;">
+                <div class="card position-relative" style="height: 398px">
+                    <img src="image\4.jpg" class="card-img-top" alt="Food" height="240" width="285">
+                    <div class="card-body">
+                        <p class="mb-0">BREAKFAST</p>
+                            <div class="h-50">
+                                <h4 class="fs-5 mb-0">Steamed Pork</h4>
+                            </div>
+                        <p>Recipe By László Barbara</p>
+                    </div>
+                    <div class="position-absolute text-danger bg-light px-2 py-1 
+                    rounded-circle end-0 m-2">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 col-sm-6" style="padding-top: 12px; padding-bottom: 12px;">
+                <div class="card position-relative" style="height: 398px">
+                    <img src="image\5-Ciri-Sepatu-Warrior-Asli-Kamu-Wajib-Tahu.jpeg" class="card-img-top" alt="Food" height="240" width="285">
+                    <div class="card-body">
+                        <p class="mb-0">BREAKFAST</p>
+                            <div class="h-50">
+                                <h4 class="fs-5 mb-0">KFC</h4>
+                            </div>
+                        <p>Recipe By László Barbara</p>
+                    </div>
+                    <div class="position-absolute text-danger bg-light px-2 py-1 
+                    rounded-circle end-0 m-2">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 col-sm-6" style="padding-top: 12px; padding-bottom: 12px;">
+                <div class="card position-relative" style="height: 398px">
+                    <img src="image\2.jpg" class="card-img-top" alt="Food" height="240" width="285">
+                    <div class="card-body">
+                        <p class="mb-0">BREAKFAST</p>
+                            <div class="h-50">
+                                <h4 class="fs-5 mb-0">Crispy Carrot Fries</h4>
+                            </div>
+                        <p>Recipe By László Barbara</p>
+                    </div>
+                    <div class="position-absolute text-danger bg-light px-2 py-1 
+                    rounded-circle end-0 m-2">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 col-sm-6" style="padding-top: 12px; padding-bottom: 12px;">
+                <div class="card position-relative" style="height: 398px">
+                    <img src="image\3.jpg" class="card-img-top" alt="Food" height="240" width="285">
+                    <div class="card-body">
+                        <p class="mb-0">BREAKFAST</p>
+                            <div class="h-50">
+                                <h4 class="fs-5 mb-0">Spicy Chicken Sauce</h4>
+                            </div>
+                        <p>Recipe By László Barbara</p>
+                    </div>
+                    <div class="position-absolute text-danger bg-light px-2 py-1 
+                    rounded-circle end-0 m-2">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 col-sm-6" style="padding-top: 12px; padding-bottom: 12px;">
+                <div class="card position-relative" style="height: 398px">
+                    <img src="image\4.jpg" class="card-img-top" alt="Food" height="240" width="285">
+                    <div class="card-body">
+                        <p class="mb-0">BREAKFAST</p>
+                            <div class="h-50">
+                                <h4 class="fs-5 mb-0">Steamed Pork</h4>
+                            </div>
+                        <p>Recipe By László Barbara</p>
+                    </div>
+                    <div class="position-absolute text-danger bg-light px-2 py-1 
+                    rounded-circle end-0 m-2">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 col-sm-6" style="padding-top: 12px; padding-bottom: 12px;">
+                <div class="card position-relative" style="height: 398px">
+                    <img src="image\5-Ciri-Sepatu-Warrior-Asli-Kamu-Wajib-Tahu.jpeg" class="card-img-top" alt="Food" height="240" width="285">
+                    <div class="card-body">
+                        <p class="mb-0">BREAKFAST</p>
+                            <div class="h-50">
+                                <h4 class="fs-5 mb-0">KFC</h4>
+                            </div>
+                        <p>Recipe By László Barbara</p>
+                    </div>
+                    <div class="position-absolute text-danger bg-light px-2 py-1 
+                    rounded-circle end-0 m-2">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="container-fluid py-5" style="background-color: #F5F5F5;">
+    <div class="container-md">
+        <div class="row">
+            <div class="col-md-3 col-sm-5 col-12">
+                <img src="image/PngItem_5029072.png" style="max-width: 200px;" alt="Logo">
+                <p class="py-4 mb-1 fw-semibold fs-4">Follow us on</p>
+                <div class="fs-3 pb-4" style="color: #4C4DDC;">
+                    <i class="fa-brands fa-facebook pe-3"></i>
+                    <i class="fa-brands fa-twitter pe-3"></i>
+                    <i class="fa-brands fa-square-instagram pe-3"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+                <p class="d-none d-sm-block">ⓒ2022 Tasty Recipe, Inc</p>
+
+            </div>
+            <div class="col-md-5 col-sm-1 col-12"></div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <p class="fw-semibold fs-5 mb-3">Get Tasty Recipe News Later</p>
+                <p class="mb-1">
+                Email Address 
+                <span class="text-danger">*</span>
+                </p>
+                <input type="text" class="form-control" placeholder="Your email address">
+                <button type="button" class="btn btn-signup rounded-pill mt-4">
+                    Sign Up
+                </button>
+
+            </div>
+           
+            <p class="d-block d-sm-none pt-5 mb-0">ⓒ2022 Tasty Recipe, Inc</p>
+        </div>
+    </div>
+</footer>
+    
+    <script src="js/bootstrap.js"></script> 
+</body>
+</html>
